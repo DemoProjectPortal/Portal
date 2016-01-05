@@ -38,7 +38,7 @@ public class HelloControllerTest {
 	}
 
 	@Test
-	public void findById_TodoEntryNotFound_ShouldRender404View() throws Exception {
+	public void sayHello_ShouldRenderIndexView() throws Exception {
 		mockMvc.perform(get("/hello", 1L)).andExpect(status().is(200)).andExpect(view().name("index"))
 				.andExpect(forwardedUrl("/WEB-INF/views/index.jsp"));
 	}
