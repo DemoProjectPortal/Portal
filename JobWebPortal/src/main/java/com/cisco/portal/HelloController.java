@@ -10,5 +10,9 @@ public class HelloController {
 	private String sayHello() {
 		return "index";
 	}
+	@RequestMapping("/")
+	private String goHome() {
+		return "angular_app";
+	}
 
 }
