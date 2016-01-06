@@ -1,0 +1,15 @@
+<div>
+	Profile Page
+	<br>
+	First Name: <span ng-bind="userProfile.firstName"></span>
+	<br>
+	Last Name: <span ng-bind="userProfile.lastName"></span>
+	<br>
+	Qualifications:
+	<table>
+		<tr ng-repeat="qualification in userProfile.qualifications">
+			<td>{{qualification.name}}</td>
+			<td>{{qualification.percentage}}</td>
+		</tr>
+	</table>
+</div>
