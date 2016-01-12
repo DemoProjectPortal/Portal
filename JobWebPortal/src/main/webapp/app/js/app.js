@@ -10,7 +10,10 @@ config([ '$routeProvider', function($routeProvider) {
 		templateUrl : 'app/partials/profile.html',
 		controller : 'profileController'
 	}).when('/profile-wizard', {
-		templateUrl : 'app/partials/profile_wizard.html',
+		templateUrl : 'app/partials/personal_details_wizard.html',
+		controller : 'profileController'
+	}).when('/education-wizard', {
+		templateUrl : 'app/partials/education_wizard.html',
 		controller : 'profileController'
 	}).otherwise({
 		redirectTo : '/login'
