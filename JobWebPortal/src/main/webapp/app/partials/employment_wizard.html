@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+<link rel="stylesheet" href="../css/jquery-ui.css"></link>
+<link rel="stylesheet" href="../css/bootstrap-3.3.5.css"></link>
+<link rel="stylesheet"
+	href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"></link>
+<link rel="stylesheet" href="../css/employment_style.css"></link>
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<img src="../images/employment.jpg" class="logo"></img> <a
+						class="navbar-brand" href="#">&nbsp;&nbsp;Employment</a>
+				</div>
+			</div>
+		</nav>
+		<div id="employment">
+			<div class="row centered-form">
+				<div
+					class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h2 class="panel-title" style="display: inline-block;">Employment</h2>
+						</div>
+						<div class="panel-body">
+							<form data-toggle="validator" role="form" id="employment_form">
+								<div class="form-group row">
+									<label for="company name" class="col-sm-4 form-control-label">Company
+										Name</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="company_name"
+											name="company_name" placeholder="Company name" required>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="strat date" class="col-sm-4 form-control-label">Start
+										Date</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="start_date"
+											name="start_date" placeholder="Start date" required>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="end date" class="col-sm-4 form-control-label">End
+										Date</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="end_date"
+											name="end_date" placeholder="End date" required>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="designation" class="col-sm-4 form-control-label">Designation</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="designation"
+											name="designation" placeholder="designation" required>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-4"></div>
+									<div class="col-sm-6">
+										<button type="submit" class="btn btn-info">Next</button>
+										<button type="reset" class="btn btn-info">Reset</button>
+									</div>								
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="../lib/jquery-1.11.2.js"></script>
+<script src="../lib/jquery-ui.js"></script>
+<script src="../lib/bootstrap-validator.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		validateForm();
+		
+		$("#start_date").datepicker({
+			defaultDate : "+1w",
+			changeMonth : true,
+			changeYear : true,
+			onClose : function(selectedDate) {
+				$("#end_date").datepicker("option", "minDate", selectedDate);
+			}
+		});
+		
+		$("#end_date").datepicker({
+			defaultDate : "+1w",
+			changeMonth : true,
+			changeYear : true,
+			onClose : function(selectedDate) {
+				$("#start_date").datepicker("option", "maxDate", selectedDate);
+			}
+		});
+	});
+
+	function validateForm() {
+		$('#employment_form').validator().on('submit', function(e) {
+			if (e.isDefaultPrevented()) {
+				// handle the invalid form...
+			} else {
+				// everything looks good!
+			}
+		});
+	}
+</script>
+</html>

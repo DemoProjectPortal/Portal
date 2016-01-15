@@ -9,8 +9,13 @@ config([ '$routeProvider', function($routeProvider) {
 	}).when('/user-profile', {
 		templateUrl : 'app/partials/profile.html',
 		controller : 'profileController'
+	}).when('/profile-wizard', {
+		templateUrl : 'app/partials/personal_details_wizard.html',
+		controller : 'profileController'
+	}).when('/education-wizard', {
+		templateUrl : 'app/partials/education_wizard.html',
+		controller : 'profileController'
 	}).otherwise({
 		redirectTo : '/login'
 	});
-
 } ]);
