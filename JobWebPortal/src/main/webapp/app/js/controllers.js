@@ -1,8 +1,10 @@
 'use strict';
 
-angular.module('job-app.controllers', [])
+angular.module('job-app.controllers', ['job-app.services'])
 
-.controller('loginController', [ "$scope", function($scope) {
+.controller('loginController', [ "$scope", "userService", function($scope, userService) {
+	console.log(userService);
+	userService.addUser({name:"ankit"});
 	$scope.message = "This message is from angular controller.";
 } ])
 .controller('profileController', [ "$scope", function($scope) {

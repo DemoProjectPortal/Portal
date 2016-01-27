@@ -8,7 +8,7 @@
 		<script src="app/lib/angular/angular-resource.js"></script>
 		<script type="text/javascript" src="app/js/app.js"></script>
 		<script type="text/javascript" src="app/js/controllers.js"></script>
-		<!-- <script type="text/javascript" src="app/js/services.js"></script> -->
+		<script type="text/javascript" src="app/js/services/userService.js"></script>
 		
 		<script src="app/lib/jquery-1.11.2.js"></script>
 		<script src="app/lib/bootstrap.min.js"></script>
