@@ -14,5 +14,4 @@ public class HelloController {
 	private String goHome() {
 		return "angular_app";
 	}
-
 }
