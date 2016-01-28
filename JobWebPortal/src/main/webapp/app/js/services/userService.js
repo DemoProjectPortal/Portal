@@ -5,7 +5,7 @@ angular.module('job-app.services', []).factory('userService', function($http) {
 	serviceObj.addUser = function(formData) {
 		var res = $http({
 			method : 'POST',
-			url : '/api/user/',
+			url : 'user/addUser',
 			data: formData
 		}).then(function successCallback(response) {
 		    // this callback will be called asynchronously

@@ -5,7 +5,7 @@ config([ '$routeProvider', function($routeProvider) {
 
 	$routeProvider.when('/login', {
 		templateUrl : 'app/partials/login.html',
-		controller : 'loginController'
+		controller : 'mainController'
 	}).when('/user-profile', {
 		templateUrl : 'app/partials/profile.html',
 		controller : 'profileController'
@@ -21,16 +21,4 @@ config([ '$routeProvider', function($routeProvider) {
 	}).otherwise({
 		redirectTo : '/login'
 	});
-} ]).controller('mainController', function($scope, $location ) {
-    // we will store all of our form data in this object
-
-	$scope.next = function(path) {
-        $location.url(path);
-        this.getData();
-    };
-    
-    $scope.getData = function(){
-    	console.log( $scope.formData);
-    }
-    $scope.formData = {};
-});
+} ]);
