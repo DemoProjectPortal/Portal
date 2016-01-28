@@ -1,56 +1,55 @@
 <div id="wizard-education">
 	<div class="row centered-form">
 		<div
-			class="col-xs-12 col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-1">
+			class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h2 class="panel-title">Personal Details</h2>
 				</div>
 				<div class="panel-body">
 					<form role="form" class="form-horizontal">
-						<div class="form-group">
-							<label for="mobile" class="col-sm-2 control-label">Mobile</label>
-							<div class="col-sm-4">
-								<input type="text" id="mobile" name="mobile" class="form-control" placeholder="mobile number">
+						<div class="form-group row">
+							<label for="mobile" class="col-sm-4 form-control-label">Mobile</label>
+							<div class="col-sm-8">
+								<input type="text" id="mobile" name="mobile" class="form-control" placeholder="mobile number" ng-model="formData.personalDetails.mobileNo">
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="permanentAddress" class="col-sm-2 control-label">Permanent Address</label>
-							<div class="col-sm-4">
-								<input type="text" id="permanentAddress" name="permanentAddress" class="form-control date" placeholder="Permanent Address">
+						<div class="form-group row">
+							<label for="permanentAddress" class="col-sm-4 form-control-label">Permanent Address</label>
+							<div class="col-sm-8">
+								<input type="text" id="permanentAddress" name="permanentAddress" class="form-control date" placeholder="Permanent Address" ng-model="formData.personalDetails.permanentAddress">
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="currentAddress" class="col-sm-2 control-label">Current Address</label>
-							<div class="col-sm-4">
-								<input type="text" id="currentAddress" name="currentAddress" class="form-control date" placeholder="Current Address">
+						<div class="form-group row">
+							<label for="currentAddress" class="col-sm-4 form-control-label">Current Address</label>
+							<div class="col-sm-8">
+								<input type="text" id="currentAddress" name="currentAddress" class="form-control date" placeholder="Current Address" ng-model="formData.personalDetails.currentAddress">
 							</div>
 						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label">Gender</label>
-							<div class="col-sm-10">
+						<div class="form-group row">
+							<label class="col-sm-4 form-control-label">Gender</label>
+							<div class="col-sm-8">
 								<div class="radio">
 									<label for="gender_male"> <input type="radio"
-										id="gender_male" name="gender" value="m"> Male
+										id="gender_male" name="gender" value="m" ng-model="formData.personalDetails.gender"> Male
 									</label>
 								</div>
 								<div class="radio">
 									<label for="gender_female"> <input type="radio"
-										id="gender_female" name="gender" value="f"> Female
+										id="gender_female" name="gender" value="f" ng-model="formData.personalDetails.gender"> Female
 									</label>
 								</div>
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="dob" class="col-sm-2 control-label">Birth Date</label>
-							<div class="col-sm-4">
-								<input type="date" id="dob" name="dob"  class="form-control date" placeholder="Birth Date">
+						<div class="form-group row">
+							<label for="dob" class="col-sm-4 form-control-label">Birth Date</label>
+							<div class="col-sm-8">
+								<input type="date" id="dob" name="dob"  class="form-control date" placeholder="Birth Date" ng-model="formData.personalDetails.birthDate">
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="form-group row">
 							<div class="col-sm-offset-2 col-sm-10">
-								<button type="submit" class="btn btn-info btn-default">Save</button>
-								<button type="submit" class="btn btn-info btn-default">Skip</button>
+								<input type="submit" class="btn btn-info btn-block" style="font-weight: bold" ng-click="next('/education-wizard')" value="Next" />								
 							</div>
 						</div>
 					</form>
