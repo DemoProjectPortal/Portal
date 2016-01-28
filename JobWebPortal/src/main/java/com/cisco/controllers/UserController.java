@@ -1,11 +1,11 @@
 package com.cisco.controllers;
 
-import java.io.IOException;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -73,8 +73,9 @@ public class UserController {
 			user.setPermanentAddress(pd.getPermanentAddress());
 			user.setCurrentAddress(pd.getCurrentAddress());
 			
-			Date createdDate = new Date(0);
-			System.out.println(dateFormat.format(createdDate));
+			Calendar calendar = Calendar.getInstance();
+			Date createdDate = new Date(calendar.getTime().getTime());
+			
 			user.setCreatedDate(createdDate);
 		
 //		user.setUserName(userName);
