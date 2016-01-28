@@ -15,17 +15,4 @@ angular.module('job-app.controllers', ['job-app.services'])
     }
     $scope.formData = {};
     
-}]).controller('profileController', [ "$scope", function($scope) {
-		$scope.userProfile = {
-						userName: "test_user",
-						firstName: "Ankit",
-					lastName: "Tyagi",
-						qualifications: [{
-							name: "SSC",
-							percentage: "65"
-						},{
-						name: "HSC",
-							percentage: "65"				
-						}]
-				};
-			} ]);;
+}]);
