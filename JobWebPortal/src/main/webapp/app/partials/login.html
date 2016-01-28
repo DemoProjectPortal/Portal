@@ -16,7 +16,7 @@
 										<input type="text" name="username" id="username"
 											class="form-control input-sm" placeholder="User name"
 											required data-toggle="floatLabel" data-value="no-js">
-										
+
 									</div>
 								</div>
 							</div>
@@ -25,7 +25,7 @@
 									<div class="form-group">
 										<input type="text" name="last_name" id="password"
 											class="form-control input-sm" placeholder="Password" required
-											data-toggle="floatLabel" data-value="no-js"> 
+											data-toggle="floatLabel" data-value="no-js">
 									</div>
 								</div>
 							</div>
@@ -34,9 +34,10 @@
 							<div class="form-group">
 								<div class="col-md-12 control">
 									<div style="padding-top: 15px;">
-										Don't have an account! <button class="btn btn-link"
-											onClick="$('#login').hide(); $('#sign-up').show()"> Sign
-											Up Here </button>
+										Don't have an account!
+										<button class="btn btn-link"
+											onClick="$('#login').hide(); $('#sign-up').show()">
+											Sign Up Here</button>
 									</div>
 								</div>
 							</div>
@@ -55,13 +56,14 @@
 						<h2 class="panel-title">SIGN UP</h2>
 					</div>
 					<div class="panel-body">
-						<form role="form">
+						<form role="form" data-toggle="validator">
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12">
 									<div class="form-group">
 										<input type="text" name="first_name" id="first_name"
 											class="form-control input-sm" placeholder="First Name"
-											required data-toggle="floatLabel" data-value="no-js" ng-model="formData.register.firstName">
+											required data-toggle="floatLabel" data-value="no-js"
+											ng-model="formData.register.firstName">
 									</div>
 								</div>
 							</div>
@@ -70,7 +72,8 @@
 									<div class="form-group">
 										<input type="text" name="last_name" id="last_name"
 											class="form-control input-sm" placeholder="Last Name"
-											required data-toggle="floatLabel" data-value="no-js" ng-model="formData.register.lastName">
+											required data-toggle="floatLabel" data-value="no-js"
+											ng-model="formData.register.lastName">
 									</div>
 								</div>
 							</div>
@@ -79,7 +82,8 @@
 									<div class="form-group">
 										<input type="email" name="email" id="email"
 											class="form-control input-sm" placeholder="Email Address"
-											required data-toggle="floatLabel" data-value="no-js" ng-model="formData.register.email">
+											required data-toggle="floatLabel" data-value="no-js"
+											ng-model="formData.register.email">
 									</div>
 								</div>
 							</div>
@@ -88,27 +92,31 @@
 									<div class="form-group">
 										<input type="password" name="password" id="password"
 											class="form-control input-sm" placeholder="Password"
-											data-toggle="floatLabel" ng-model="formData.register.password">
+											data-toggle="floatLabel"
+											ng-model="formData.register.password">
 									</div>
 								</div>
 								<div class="col-xs-12 col-sm-6 col-md-6">
 									<div class="form-group">
 										<input type="password" name="password_confirmation"
 											id="password_confirmation" class="form-control input-sm"
-											placeholder="Confirm Password" data-toggle="floatLabel" ng-model="formData.register.confirmPassword">
+											placeholder="Confirm Password" data-toggle="floatLabel">
 									</div>
 								</div>
 							</div>
-							<input type="submit" class="btn btn-info btn-block" style="font-weight: bold" ng-click="next('/profile-wizard')" value="Next" />
+							<input type="submit" class="btn btn-info btn-block"
+								style="font-weight: bold" ng-click="next('/profile-wizard')"
+								value="Next" />
 							<div class="form-group">
 								<div class="col-md-12 control">
 									<div style="padding-top: 15px;">
-										<button href="#" onClick="$('#login').show(); $('#sign-up').hide()" class="btn btn-link">
-											Sign In Here </button>
+										<button href="#"
+											onClick="$('#login').show(); $('#sign-up').hide()"
+											class="btn btn-link">Sign In Here</button>
 									</div>
 								</div>
 							</div>
-							
+
 						</form>
 					</div>
 				</div>
