@@ -1,15 +1,19 @@
 package config;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -17,6 +21,12 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import com.cisco.models.EmployementDetails;
+import com.cisco.models.Qualification;
+import com.cisco.models.QualificationMaster;
+import com.cisco.models.User;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration
 @EnableWebMvc
@@ -76,16 +86,37 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	    Properties properties = new Properties();
 	    properties.put("hibernate.show_sql", "true");
 	    properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+	    properties.put("hibernate.hbm2ddl.auto", "update");
 	    return properties;
 	}
 	
-	@Autowired
+//	@Autowired
 	@Bean(name = "sessionFactory")
 	public SessionFactory getSessionFactory(DataSource dataSource) {
-	 
 	    LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
-	    //sessionBuilder.addAnnotatedClasses(User.class);
+	    sessionBuilder.addAnnotatedClasses(User.class);
+	    sessionBuilder.addAnnotatedClasses(QualificationMaster.class);
+	    sessionBuilder.addAnnotatedClasses(Qualification.class);
+	    sessionBuilder.addAnnotatedClasses(EmployementDetails.class);
 	    sessionBuilder.addProperties(getHibernateProperties());
 	    return sessionBuilder.buildSessionFactory();
 	}
+
+	@Bean(name = "txName")
+	public HibernateTransactionManager txName(SessionFactory sessionFactory, DataSource dataSource) throws IOException {
+		HibernateTransactionManager txName = new HibernateTransactionManager();
+		txName.setSessionFactory(sessionFactory);
+		txName.setDataSource(dataSource);
+		return txName;
+	}
+	
+	@Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        final MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+        final ObjectMapper objectMapper = new ObjectMapper();
+        //objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        converter.setObjectMapper(objectMapper);
+        converters.add(converter);
+        super.configureMessageConverters(converters);
+    }
 }
