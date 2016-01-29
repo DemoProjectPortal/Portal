@@ -7,8 +7,7 @@
 					<h2 class="panel-title">Enter Education Details</h2>
 				</div>
 				<div class="panel-body">
-					<form role="form" name="educationDetailsForm"
-						ng-submit="next('/employment_wizard')" novalidate>
+					<form role="form" name="educationDetailsForm" novalidate>
 						<div class="form-group row"
 							ng-class="{ 'has-error' : educationDetailsForm.qualification.$invalid && educationDetailsForm.qualification.$touched }">
 							<label for="qualification" class="col-sm-4 form-control-label">Qualification</label>
@@ -90,10 +89,16 @@
 							</div>
 						</div>
 						<div class="form-group row">
-							<div class="col-sm-offset-2 col-sm-10">
-								<input type="submit" class="btn btn-info btn-block"
+							<div class="col-sm-6">
+								<button type="submit" class="btn btn-info btn-block"
+									style="font-weight: bold" value="back"
+									ng-click="next('/profile-wizard')">back</button>
+							</div>
+							<div class="col-sm-6">
+								<button type="submit" class="btn btn-info btn-block"
 									style="font-weight: bold" value="Next"
-									ng-disabled="educationDetailsForm.$invalid" />
+									ng-disabled="educationDetailsForm.$invalid"
+									ng-click="next('/employment_wizard')">Next</button>
 							</div>
 						</div>
 					</form>

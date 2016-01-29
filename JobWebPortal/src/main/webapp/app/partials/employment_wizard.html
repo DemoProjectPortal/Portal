@@ -7,8 +7,7 @@
 					<h2 class="panel-title" style="display: inline-block;">Employment</h2>
 				</div>
 				<div class="panel-body">
-					<form role="form" name="employmentForm" ng-submit="getData()"
-						novalidate>
+					<form role="form" name="employmentForm" novalidate>
 						<div class="form-group row"
 							ng-class="{ 'has-error' : employmentForm.company_name.$invalid && employmentForm.company_name.$touched }">
 							<label for="company name" class="col-sm-4 form-control-label">Company
@@ -64,10 +63,14 @@
 							</div>
 						</div>
 						<div class="form-group row">
-							<div class="col-sm-4"></div>
 							<div class="col-sm-6">
-								<button type="submit" class="btn btn-info"
-									ng-disabled="employmentForm.$invalid" ng-click="next('/user-profile')">Save</button>
+								<button type="submit" class="btn btn-info btn-block"
+									style="font-weight: bold" value="back"
+									ng-click="next('/education-wizard')">back</button>
+							</div>
+							<div class="col-sm-6">
+								<button type="submit" class="btn btn-info btn-block"
+									ng-disabled="employmentForm.$invalid" ng-click="getData()">Save</button>
 							</div>
 						</div>
 					</form>
