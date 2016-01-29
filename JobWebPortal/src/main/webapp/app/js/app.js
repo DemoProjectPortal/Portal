@@ -4,20 +4,15 @@ angular.module('job-app', [ 'ngRoute', 'ngResource', 'job-app.controllers', 'Use
 config([ '$routeProvider', function($routeProvider) {
 
 	$routeProvider.when('/login', {
-		templateUrl : 'app/partials/login.html',
-		controller : 'mainController'
+		templateUrl : 'app/partials/login.html'
 	}).when('/user-profile', {
-		templateUrl : 'app/partials/profile.html',
-		controller : 'profileController'
+		templateUrl : 'app/partials/profile.html'
 	}).when('/profile-wizard', {
-		templateUrl : 'app/partials/personal_details_wizard.html',
-		controller : 'profileController'
+		templateUrl : 'app/partials/personal_details_wizard.html'
 	}).when('/education-wizard', {
-		templateUrl : 'app/partials/education_wizard.html',
-		controller : 'profileController'
+		templateUrl : 'app/partials/education_wizard.html'
 	}).when('/employment_wizard', {
-		templateUrl : 'app/partials/employment_wizard.html',
-		controller : 'profileController'
+		templateUrl : 'app/partials/employment_wizard.html'
 	}).otherwise({
 		redirectTo : '/login'
 	});
