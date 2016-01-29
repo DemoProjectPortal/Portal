@@ -24,6 +24,11 @@
 						$(this).val()).on('keyup change', function() {
 					$(this).attr('data-value', $(this).val());
 				});
+				$(".btn-pref .btn").click(function () {
+		            $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+		            // $(".tab").addClass("active"); // instead of this do the below 
+		            $(this).removeClass("btn-default").addClass("btn-primary");   
+		        });
 			});
 </script>
 <link rel="stylesheet" href="app/css/jquery-ui.css"></link>
@@ -32,6 +37,7 @@
 <link rel="stylesheet"
 	href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"></link>
 <link rel="stylesheet" href="app/css/login_style.css"></link>
+<link rel="stylesheet" href="app/css/profile_style.css"></link>
 </head>
 <body ng-app="job-app">
 	<nav class="navbar navbar-default navbar-fixed-top">
