@@ -13,6 +13,8 @@ public interface UserDAO {
 	public User getUserById(int id);
 
 	public void removeUser(int id);
+	
+	public List<User> getUserByMobile(String mobile);
 
 }
 

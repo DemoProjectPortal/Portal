@@ -11,6 +11,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
+import javax.jws.soap.SOAPBinding.Use;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,9 +27,11 @@ import com.cisco.dao.QualificationDAO;
 import com.cisco.dao.QualificationMasterDAO;
 import com.cisco.dao.QualificationMasterDAOImpl;
 import com.cisco.dao.UserDAO;
+import com.cisco.dao.UserDAOImpl;
 import com.cisco.models.Education;
 import com.cisco.models.EmployementDetails;
 import com.cisco.models.Employment;
+import com.cisco.models.JsonResponse;
 import com.cisco.models.PersonalDetails;
 import com.cisco.models.Qualification;
 import com.cisco.models.QualificationMaster;
@@ -37,6 +43,9 @@ import com.cisco.models.UserJson;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	
 	@Autowired
 	private UserDAO userDao;
 	
@@ -50,11 +59,22 @@ public class UserController {
 	private EmploymentDAO  employmentDAO;
 
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST, produces = "application/json")
-	private @ResponseBody String addDetails(@RequestBody UserJson json) throws ParseException {
+	private @ResponseBody JsonResponse addDetails(@RequestBody UserJson json) throws ParseException {
 		System.out.println(json);
-		String status = "Success";
+		JsonResponse jsonResponse = new JsonResponse();
 		try {
 			PersonalDetails pd = json.getPersonalDetails();
+			String mobile = pd.getMobileNo();
+			List<User> existingUsers = userDao.getUserByMobile(mobile);
+			if (existingUsers.size() > 0) {
+				logger.error("User with mobile no. : " + mobile
+						+ " already exists. Please specify a different mobile number to continue.");
+				jsonResponse.setResponseCode(400);
+				jsonResponse.setStatus("Error");
+				jsonResponse.setDesription("User with mobile no. : " + mobile
+						+ " already exists. Please specify a different mobile number to continue.");
+				return jsonResponse;
+			}
 			Register r = json.getRegister();
 			Education edu = json.getEducation();
 			Employment emp = json.getEmployment(); 
@@ -67,7 +87,7 @@ public class UserController {
 			user.setLastName(r.getLastName());
 			user.setGender(pd.getGender());
 			user.setDob(dateFormat.parse(pd.getBirthDate()));
-			user.setMobile(pd.getMobileNo());
+			user.setMobile(mobile);
 			user.setEmail(r.getEmail());
 			user.setPassword(r.getPassword());
 			user.setPermanentAddress(pd.getPermanentAddress());
@@ -120,12 +140,17 @@ public class UserController {
 			long emplId = employmentDAO.addEmployment(e);
 			System.out.println("Employment Details added: with id --------------------");
 			System.out.println(emplId);
-		} catch (Exception e) {
-			status = "error";
-			e.printStackTrace();
+			jsonResponse.setResponseCode(200);
+			jsonResponse.setStatus("success");
+			jsonResponse.setDesription("Registered successfully!");
+		} catch (Exception exception) {
+			jsonResponse.setResponseCode(400);
+			jsonResponse.setStatus("Error");
+			jsonResponse.setDesription("Registration failed!");
+			logger.error("Error in registration : "+exception.getMessage());
 		}	
 		
-		return status;
+		return jsonResponse;
 	}
 	
 	@RequestMapping(value = "/qualification", method = RequestMethod.GET, produces = "application/json")

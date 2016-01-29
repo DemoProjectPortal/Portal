@@ -63,6 +63,15 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return UserList;
 	}
+	
+	@Override
+	@Transactional
+	public List<User> getUserByMobile(String mobile) {
+		Session session = this.sessionFactory.getCurrentSession();
+		String hql = "FROM User U WHERE U.mobile = " + mobile;
+		List<User> users = session.createQuery(hql).list();		
+		return users;
+	}
 
 	@Override
 	public User getUserById(int id) {
