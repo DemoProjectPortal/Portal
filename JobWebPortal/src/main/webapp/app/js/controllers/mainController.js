@@ -4,9 +4,8 @@ angular.module('job-app.controllers', ['job-app.services'])
 .controller('mainController', [ "$scope", "userService", "$location", function($scope, userService, $location) {
     // we will store all of our form data in this object
 
-	$scope.next = function(path) {
-        $location.url(path);
-        //this.getData();
+	$scope.next = function(path) {        
+       $location.url(path);
     };
     
     $scope.getData = function(){
@@ -28,4 +27,4 @@ angular.module('job-app.controllers', ['job-app.services'])
 							percentage: "65"				
 						}]
 				};
-			} ]);;
+} ]);

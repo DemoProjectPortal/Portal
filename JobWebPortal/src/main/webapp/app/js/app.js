@@ -1,5 +1,5 @@
 // Declare app level module which depends on filters, and services
-angular.module('job-app', [ 'ngRoute', 'ngResource', 'job-app.controllers' ]).
+angular.module('job-app', [ 'ngRoute', 'ngResource', 'job-app.controllers', 'UserValidation' ]).
 
 config([ '$routeProvider', function($routeProvider) {
 
@@ -22,3 +22,16 @@ config([ '$routeProvider', function($routeProvider) {
 		redirectTo : '/login'
 	});
 } ]);
+angular.module('UserValidation', []).directive('validPasswordConfirmation', function () {
+    return {
+        require: 'ngModel',
+        link:{
+        	post: function (scope, elm, attrs, ctrl) {
+	            ctrl.$parsers.unshift(function (viewValue, $scope) {
+	                var noMatch = viewValue != scope.registerForm.password.$viewValue
+	                ctrl.$setValidity('noMatch', !noMatch)
+	            })
+        	}
+        }
+    }
+});
