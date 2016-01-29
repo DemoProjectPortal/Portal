@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "user")
 public class User {
@@ -32,6 +34,7 @@ public class User {
 //	private Qualification qualificationId;
 	
 	@OneToMany(mappedBy="user")
+    @JsonManagedReference
 	private Set<Qualification> qualification;
 
 	
