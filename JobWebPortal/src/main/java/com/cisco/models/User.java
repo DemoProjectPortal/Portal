@@ -19,29 +19,20 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 @Table(name = "user")
 public class User {
-	
-//	public User() {
-//		// TODO Auto-generated constructor stub
-//	}
-	
+
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-//	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-//	@JoinColumn(name="qualification_id")
-//	private Qualification qualificationId;
-	
-	@OneToMany(mappedBy="user")
-    @JsonManagedReference
+
+	@OneToMany(mappedBy = "user")
+	@JsonManagedReference
 	private Set<Qualification> qualification;
 
-	
 	@Column(name = "user_name")
 	private String userName;
-	
-	@Column(name = "email")
+
+	@Column(name = "email", unique = true, nullable = false)
 	private String email;
 
 	public Set<Qualification> getQualification() {
@@ -62,31 +53,31 @@ public class User {
 
 	@Column(name = "password")
 	private String password;
-	
+
 	@Column(name = "first_name")
 	private String firstName;
-	
+
 	@Column(name = "last_name")
 	private String lastName;
-	
+
 	@Column(name = "admin")
 	private String admin;
-	
+
 	@Column(name = "created_date")
 	private Date createdDate;
-	
-	@Column(name = "mobile", unique=true)
+
+	@Column(name = "mobile")
 	private String mobile;
-	
+
 	@Column(name = "permanent_address")
-	private String permanentAddress;	
-	
+	private String permanentAddress;
+
 	@Column(name = "current_address")
 	private String currentAddress;
-	
+
 	@Column(name = "gender")
-	private String gender; 
-	
+	private String gender;
+
 	@Column(name = "dob")
 	private Date dob;
 
