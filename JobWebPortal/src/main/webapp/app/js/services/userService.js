@@ -14,7 +14,7 @@ angular.module('job-app.services', []).factory('userService', function($http) {
 			console.log(response);
 			
 			if(response ) {
-				if (response.data == '"Success"') {
+				if (response.data.responseCode == 200) {
 					if (successCallback) {
 						successCallback(response);
 					}

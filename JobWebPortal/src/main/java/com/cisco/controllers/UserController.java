@@ -60,7 +60,7 @@ public class UserController {
 			Education edu = json.getEducation();
 			Employment emp = json.getEmployment();
 
-			DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 
 			User user = new User();
 
