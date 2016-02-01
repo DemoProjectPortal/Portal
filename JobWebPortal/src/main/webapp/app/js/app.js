@@ -13,6 +13,10 @@ config([ '$routeProvider', function($routeProvider) {
 		templateUrl : 'app/partials/education_wizard.html'
 	}).when('/employment_wizard', {
 		templateUrl : 'app/partials/employment_wizard.html'
+	}).when('/sign-up-success', {
+		templateUrl : 'app/partials/sign-up-success.html'
+	}).when('/sign-up-error', {
+		templateUrl : 'app/partials/sign-up-error.html'
 	}).otherwise({
 		redirectTo : '/login'
 	});
