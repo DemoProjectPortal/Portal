@@ -17,16 +17,15 @@ config([ '$routeProvider', function($routeProvider) {
 		redirectTo : '/login'
 	});
 } ]);
-angular.module('UserValidation', []).directive('validPasswordConfirmation', function () {
-    return {
-        require: 'ngModel',
-        link:{
-        	post: function (scope, elm, attrs, ctrl) {
-	            ctrl.$parsers.unshift(function (viewValue, $scope) {
-	                var noMatch = viewValue != scope.registerForm.password.$viewValue
-	                ctrl.$setValidity('noMatch', !noMatch)
-	            })
-        	}
-        }
-    }
+
+angular.module('UserValidation', []).directive('wjValidationError', function() {
+	return {
+		require : 'ngModel',
+		link : function(scope, elm, attrs, ctl) {
+			scope.$watch(attrs['wjValidationError'], function(errorMsg) {
+				elm[0].setCustomValidity(errorMsg);
+				ctl.$setValidity('wjValidationError', errorMsg ? false : true);
+			});
+		}
+	};
 });

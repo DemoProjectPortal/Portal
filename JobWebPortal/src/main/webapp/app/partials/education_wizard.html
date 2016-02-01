@@ -15,7 +15,7 @@
 								<select type="text" name="qualification" id="qualification"
 									ng-model="formData.education.qualification"
 									class="form-control" data-value="no-js" required>
-									<option value="0">Select qualification</option>
+									<option ng-selected="true" disabled="true">--Please Select qualification --</option>
 									<option value="1">SSC</option>
 									<option value="2">HSC</option>
 									<option value="3">Graduation</option>

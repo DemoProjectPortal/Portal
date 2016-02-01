@@ -11,7 +11,7 @@
 						<div class="form-group row">
 							<label for="mobile" class="col-sm-4 form-control-label">Mobile</label>
 							<div class="col-sm-8"
-								ng-class="{ 'has-error' : personalDetailsForm.mobile.$invalid && personalDetailsForm.mobile.$touched }">
+								ng-class="{ 'has-error' : (personalDetailsForm.mobile.$invalid && personalDetailsForm.mobile.$touched) || (personalDetailsForm.mobile.$error.minlength || personalDetailsForm.mobile.$error.maxlength) }">
 								<input type="number" id="mobile" name="mobile"
 									class="form-control" placeholder="mobile number"
 									ng-model="formData.personalDetails.mobileNo" ng-minlength="10"

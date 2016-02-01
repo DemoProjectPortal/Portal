@@ -109,7 +109,7 @@
 											ng-minlength="8" ng-maxlength="20">
 
 										<p class="help-block"
-											ng-show="registerForm.password.$error.required && registerForm.password.$dirty ">Password
+											ng-show="registerForm.password.$error.required && registerForm.password.$touched ">Password
 											is required</p>
 										<p class="help-block"
 											ng-show="!registerForm.password.$error.required && (registerForm.password.$error.minlength || registerForm.password.$error.maxlength) && registerForm.password.$dirty ">Passwords
@@ -118,22 +118,23 @@
 								</div>
 								<div class="col-xs-12 col-sm-6 col-md-6">
 									<div class="form-group"
-										ng-class="{ 'has-error' : (registerForm.password_confirmation.$error.required && registerForm.password_confirmation.$touched) || (!registerForm.password_confirmation.$error.required && registerForm.password_confirmation.$error.noMatch && registerForm.password_confirmation.$dirty) }">
+										ng-class="{ 'has-error' : (registerForm.password_confirmation.$error.required && registerForm.password_confirmation.$touched) || (!registerForm.password_confirmation.$error.required && registerForm.password_confirmation.$error.wjValidationError && registerForm.password_confirmation.$dirty) }">
 										<input type="password" name="password_confirmation"
 											id="password_confirmation" class="form-control input-sm"
 											placeholder="Confirm Password" data-toggle="floatLabel"
-											ng-model="passwordConfirmation" compare-to="registration.user.password"
-											valid-password-confirmation required>
+											ng-model="passwordConfirmation"
+											wj-validation-error="passwordConfirmation != formData.register.password ? 'Passwords don\'t match' : ''"
+											required>
 
 										<p class="help-block"
-											ng-show="registerForm.password_confirmation.$touched &&  registerForm.password_confirmation.$error.required ">Please
+											ng-show="registerForm.password_confirmation.$touched && registerForm.password_confirmation.$error.required">Please
 											confirm your password.</p>
 										<p class="help-block"
-											ng-show="!registerForm.password_confirmation.$error.required && registerForm.password_confirmation.$error.noMatch && registerForm.password_confirmation.$dirty">Passwords
+											ng-show="!registerForm.password_confirmation.$error.required && registerForm.password_confirmation.$error.wjValidationError && registerForm.password_confirmation.$dirty ">Passwords
 											do not match.</p>
 									</div>
 								</div>
-							</div>							
+							</div>
 							<input type="submit" class="btn btn-info btn-block"
 								style="font-weight: bold" ng-disabled="registerForm.$invalid"
 								ng-click="next('/profile-wizard')" value="Next" />
