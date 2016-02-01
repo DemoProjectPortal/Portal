@@ -51,7 +51,7 @@
 						class="icon-bar"></span>
 				</button>
 				<img src="app/images/userlogo.png" class="logo"></img> <a
-					class="navbar-brand" href="#">&nbsp;&nbsp;USER PORTAL</a>
+					class="navbar-brand" href="#/">&nbsp;&nbsp;USER PORTAL</a>
 			</div>
 		</div>
 	</nav>
