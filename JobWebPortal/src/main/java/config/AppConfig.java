@@ -76,9 +76,12 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	public DataSource getDataSource() {
 	    BasicDataSource dataSource = new BasicDataSource();
 	    dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-	    dataSource.setUrl("jdbc:mysql://172.27.232.191:3306/jobportal");
-	    dataSource.setUsername("webuser");
-	    dataSource.setPassword("webpass");
+//	    dataSource.setUrl("jdbc:mysql://172.27.232.191:3306/jobportal");
+//	    dataSource.setUsername("webuser");
+//	    dataSource.setPassword("webpass");
+	    dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/jobportal");
+	    dataSource.setUsername("root");
+	    dataSource.setPassword("root");
 	    return dataSource;
 	}
 	
