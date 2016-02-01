@@ -1,5 +1,5 @@
 // Declare app level module which depends on filters, and services
-angular.module('job-app', [ 'ngRoute', 'ngResource', 'job-app.controllers' ]).
+angular.module('job-app', [ 'ngRoute', 'ngResource', 'job-app.controllers', 'UserValidation' ]).
 
 config([ '$routeProvider', function($routeProvider) {
 
@@ -21,3 +21,15 @@ config([ '$routeProvider', function($routeProvider) {
 		redirectTo : '/login'
 	});
 } ]);
+
+angular.module('UserValidation', []).directive('wjValidationError', function() {
+	return {
+		require : 'ngModel',
+		link : function(scope, elm, attrs, ctl) {
+			scope.$watch(attrs['wjValidationError'], function(errorMsg) {
+				elm[0].setCustomValidity(errorMsg);
+				ctl.$setValidity('wjValidationError', errorMsg ? false : true);
+			});
+		}
+	};
+});

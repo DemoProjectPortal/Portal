@@ -18,5 +18,4 @@ angular.module('job-app.controllers', ['job-app.services'])
     	});
     }
     $scope.formData = {};
-    
 }]);
