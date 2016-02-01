@@ -11,8 +11,11 @@ angular.module('job-app.controllers', ['job-app.services'])
     
     $scope.getData = function(){
     	console.log( $scope.formData);
-    	userService.addUser($scope.formData);
+    	userService.addUser($scope.formData, function(response) {
+    		$location.url("/sign-up-success");
+    	}, function(response) {
+    		$location.url("/sign-up-error");
+    	});
     }
     $scope.formData = {};
-    
 }]);
