@@ -11,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
@@ -31,6 +32,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.cisco")
+@Import({ SecurityConfig.class })
 public class AppConfig extends WebMvcConfigurerAdapter {
  
     @Override
@@ -76,9 +78,13 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	public DataSource getDataSource() {
 	    BasicDataSource dataSource = new BasicDataSource();
 	    dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-	    dataSource.setUrl("jdbc:mysql://172.27.232.191:3306/jobportal");
+	    /*dataSource.setUrl("jdbc:mysql://172.27.232.191:3306/jobportal");
 	    dataSource.setUsername("webuser");
 	    dataSource.setPassword("webpass");
+	    */
+	    dataSource.setUrl("jdbc:mysql://localhost:3306/jobportal");
+	    dataSource.setUsername("root");
+	    dataSource.setPassword("root");
 	    return dataSource;
 	}
 	
