@@ -22,7 +22,7 @@ CREATE TABLE `qualification` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `qulification_master` (
+CREATE TABLE `qualification_master` (
   `id` bigint(11) NOT NULL,
   `qualification_name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
@@ -44,3 +44,5 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `mobile_UNIQUE` (`mobile`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO  `qualification_master` (`qualification_name`) VALUES ('SSC'), ('HSC'), ('Graduation'), ('Other');
