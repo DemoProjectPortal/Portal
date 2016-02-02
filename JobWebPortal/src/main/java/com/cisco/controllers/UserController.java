@@ -79,7 +79,6 @@ public class UserController {
 
 			user.setCreatedDate(createdDate);
 
-			// user.setUserName(userName);
 			// user.setAdmin(admin);
 
 			long userId = userDao.addUser(user);
@@ -87,17 +86,17 @@ public class UserController {
 			System.out.println(userId);
 
 			//// /**** Add QulificationMaster *****/
-			QualificationMaster qualificationMaster = new QualificationMaster();
-			qualificationMaster.setQualificationName(edu.getQualification());
-			long qualificationMasterId = qulificationMasterDao.addQualificationMaster(qualificationMaster);
+//			QualificationMaster qualificationMaster = new QualificationMaster();
+//			qualificationMaster.setQualificationName(edu.getQualification());
+//			long qualificationMasterId = qulificationMasterDao.addQualificationMaster(qualificationMaster);
 
 			Qualification qualification = new Qualification();
 
-			qualification.setQualificationId(qualificationMasterId); // edu.getQualification()
+			qualification.setQualificationId(Integer.parseInt(edu.getQualification()));
 			qualification.setUser(user);
 			qualification.setStartDate(dateFormat.parse(edu.getStartDate()));
 			qualification.setEndDate(dateFormat.parse(edu.getEndDate()));
-			qualification.setDescription(edu.getQualification());
+			qualification.setDescription(edu.getSpecialization());
 			qualification.setUniversity(edu.getUniversity());
 			qualification.setPercentage(Double.parseDouble(edu.getPercentage()));
 			// qulification.setDescription();

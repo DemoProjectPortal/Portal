@@ -29,9 +29,6 @@ public class User {
 	@JsonManagedReference
 	private Set<Qualification> qualification;
 
-	@Column(name = "user_name")
-	private String userName;
-
 	@Column(name = "email", unique = true, nullable = false)
 	private String email;
 
@@ -87,14 +84,6 @@ public class User {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
 	}
 
 	public String getPassword() {
