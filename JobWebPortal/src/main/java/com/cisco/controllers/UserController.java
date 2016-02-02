@@ -108,10 +108,7 @@ public class UserController {
 
 			EmployementDetails e = new EmployementDetails();
 
-			Set<User> users = new HashSet<User>();
-			users.add(user);
-
-			e.setUsers(users);
+			e.setUser(user);
 
 			e.setCompanyName(emp.getCompanyName());
 			e.setDesignation(emp.getDesignation());
@@ -121,6 +118,7 @@ public class UserController {
 			long emplId = employmentDAO.addEmployment(e);
 			System.out.println("Employment Details added: with id --------------------");
 			System.out.println(emplId);
+			
 			response.setResponseCode(200);
 			response.setStatus("success");
 			response.setDesription("Registered successfully!");

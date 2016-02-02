@@ -3,14 +3,11 @@ package com.cisco.models;
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -28,9 +25,18 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	@JsonManagedReference
 	private Set<Qualification> qualification;
+	
+	@OneToMany(mappedBy = "user")
+	@JsonManagedReference
+	private Set<EmployementDetails> employments;
+	
+	public Set<EmployementDetails> getEmployments() {
+		return employments;
+	}
 
-	@Column(name = "user_name")
-	private String userName;
+	public void setEmployments(Set<EmployementDetails> employments) {
+		this.employments = employments;
+	}
 
 	@Column(name = "email", unique = true, nullable = false)
 	private String email;
@@ -81,20 +87,13 @@ public class User {
 	@Column(name = "dob")
 	private Date dob;
 
+
 	public long getId() {
 		return id;
 	}
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
 	}
 
 	public String getPassword() {
