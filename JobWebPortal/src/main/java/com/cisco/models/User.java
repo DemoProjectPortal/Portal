@@ -23,7 +23,6 @@ public class User {
 	private long id;
 
 	@OneToMany(mappedBy = "user")
-	@JsonManagedReference
 	private Set<Qualification> qualification;
 	
 	@OneToMany(mappedBy = "user")
