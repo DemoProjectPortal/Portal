@@ -26,7 +26,6 @@ public class User {
 	private Set<Qualification> qualification;
 	
 	@OneToMany(mappedBy = "user")
-	@JsonManagedReference
 	private Set<EmployementDetails> employments;
 	
 	public Set<EmployementDetails> getEmployments() {
