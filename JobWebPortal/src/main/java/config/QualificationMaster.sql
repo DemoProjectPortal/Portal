@@ -1,4 +1,4 @@
-INSERT INTO `jobportal`.`qulification_master`(`id`,`qualification_name`)
+INSERT INTO `jobportal`.`qualification_master`(`id`,`qualification_name`)
 VALUES(1, "SSC"),
 	(2, "HSC"),
 	(3, "BE"),
