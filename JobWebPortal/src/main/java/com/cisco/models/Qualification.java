@@ -33,7 +33,6 @@ public class Qualification {
 	private long qualificationId;
 	
 	@ManyToOne(optional = false)
-	@JoinColumn(name="id", referencedColumnName="id")
 	private User user;
 	
 	public User getUser() {
