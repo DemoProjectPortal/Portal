@@ -7,11 +7,16 @@ angular.module('job-app.controllers', [ 'job-app.services' ]).controller(
 				"userService",
 				"$location",
 				function($scope, userService, $location) {
-					// we will store all of our form data in this object
 
 					$scope.next = function(path) {
 						$location.url(path);
-						// this.getData();
+						if (path == "/login") {
+							$scope.$on("$routeChangeSuccess", function(event,
+									next, current) {
+								$('#login').hide();
+								$('#sign-up').show();
+							});
+						}
 					};
 
 					$scope.getData = function() {
@@ -23,7 +28,6 @@ angular.module('job-app.controllers', [ 'job-app.services' ]).controller(
 									$location.url("/sign-up-error");
 								});
 					}
-
 					// Calls the getQualifications service to get the json of
 					// qualifications
 					$scope.getQualifications = userService.getQualifications(
