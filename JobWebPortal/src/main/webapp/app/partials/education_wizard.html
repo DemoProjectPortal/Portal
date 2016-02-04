@@ -16,14 +16,7 @@
 									ng-model="formData.education.qualification"
 									class="form-control" data-value="no-js" required>
 									<option ng-selected="true" disabled="true">--Please Select qualification --</option>
-									<option value="1">SSC</option>
-									<option value="2">HSC</option>
-									<option value="3">BE</option>
-									<option value="4">BCA</option>
-									<option value="5">MCA</option>
-									<option value="6">MBA</option>
-									<option value="7">Graduation</option>
-									<option value="8">Other</option>
+									<option ng-repeat="list in qualificationList" value="{{list.id}}">{{list.qualificationName}}</option>
 								</select>
 								<p class="help-block"
 									ng-show="educationDetailsForm.qualification.$error.required && educationDetailsForm.qualification.$touched ">Qualification

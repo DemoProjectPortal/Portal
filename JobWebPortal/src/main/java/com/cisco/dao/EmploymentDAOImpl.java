@@ -42,26 +42,22 @@ public class EmploymentDAOImpl implements EmploymentDAO{
 
 	@Override
 	public void updateEmployment(EmployementDetails p) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public List<EmployementDetails> listEmployment() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public EmployementDetails getEmploymentById(int id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void removeEmployementDetails(int id) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 }

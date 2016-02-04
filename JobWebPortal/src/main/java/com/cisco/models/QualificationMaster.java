@@ -10,33 +10,32 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "qulification_master")
 public class QualificationMaster {
-	
-	public QualificationMaster() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	@Id
-	@Column
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
-	@Column(name = "qualification_name")
-	private String qualificationName;
-	
-	public long getId(){
-		return id;
-	}
-	
-	public void setId(long id){
-		this.id = id;
-	}
-	
-	public String getQualificationName(){
-		return qualificationName;
-	}
-	
-	public void setQualificationName(String qualificationName){
-		this.qualificationName = qualificationName;
-	}
-}
 
+  public QualificationMaster() {
+    
+  }
+
+  @Id
+  @Column
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private long id;
+
+  @Column(name = "qualification_name")
+  private String qualificationName;
+
+  public long getId() {
+    return id;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  public String getQualificationName() {
+    return qualificationName;
+  }
+
+  public void setQualificationName(String qualificationName) {
+    this.qualificationName = qualificationName;
+  }
+}

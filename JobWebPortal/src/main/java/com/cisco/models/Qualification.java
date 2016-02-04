@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -20,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Qualification {
 
 	public Qualification() {
-		// TODO Auto-generated constructor stub
+
 	}
 	
 	@Id
@@ -76,9 +75,8 @@ public class Qualification {
 		this.qualificationId = qualificationId;
 	}
 
-	public QualificationMaster getDescription() {
-//		QualificationMaster qualification = QualificationMaster.MCA;
-		return null;
+	public String getDescription() {
+		return description;
 	}
 
 	public void setDescription(String description) {
@@ -118,15 +116,3 @@ public class Qualification {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
