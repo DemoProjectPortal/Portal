@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
     "responseCode",
     "status",
-    "desription"
+    "description"
 })
 public class JsonResponse {
 
@@ -24,8 +24,8 @@ public class JsonResponse {
     private int responseCode;
     @JsonProperty("status")
     private String status;
-    @JsonProperty("desription")
-    private String desription;
+    @JsonProperty("description")
+    private String description;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -40,12 +40,12 @@ public class JsonResponse {
      * 
      * @param responseCode
      * @param status
-     * @param desription
+     * @param description
      */
-    public JsonResponse(int responseCode, String status, String desription) {
+    public JsonResponse(int responseCode, String status, String description) {
         this.responseCode = responseCode;
         this.status = status;
-        this.desription = desription;
+        this.description = description;
     }
 
     /**
@@ -91,21 +91,21 @@ public class JsonResponse {
     /**
      * 
      * @return
-     *     The desription
+     *     The description
      */
-    @JsonProperty("desription")
-    public String getDesription() {
-        return desription;
+    @JsonProperty("description")
+    public String getDescription() {
+        return description;
     }
 
     /**
      * 
-     * @param desription
-     *     The desription
+     * @param description
+     *     The description
      */
-    @JsonProperty("desription")
-    public void setDesription(String desription) {
-        this.desription = desription;
+    @JsonProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @JsonAnyGetter
