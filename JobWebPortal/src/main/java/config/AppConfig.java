@@ -78,11 +78,10 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	public DataSource getDataSource() {
 	    BasicDataSource dataSource = new BasicDataSource();
 	    dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-	    /*dataSource.setUrl("jdbc:mysql://172.27.232.191:3306/jobportal");
-	    dataSource.setUsername("webuser");
-	    dataSource.setPassword("webpass");
-	    */
-	    dataSource.setUrl("jdbc:mysql://localhost:3306/jobportal");
+//	    dataSource.setUrl("jdbc:mysql://172.27.232.191:3306/jobportal");
+//	    dataSource.setUsername("webuser");
+//	    dataSource.setPassword("webpass");
+	    dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/jobportal");
 	    dataSource.setUsername("root");
 	    dataSource.setPassword("root");
 	    return dataSource;
@@ -108,12 +107,12 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	    return sessionBuilder.buildSessionFactory();
 	}
 
-	@Bean(name = "txName")
-	public HibernateTransactionManager txName(SessionFactory sessionFactory, DataSource dataSource) throws IOException {
-		HibernateTransactionManager txName = new HibernateTransactionManager();
-		txName.setSessionFactory(sessionFactory);
-		txName.setDataSource(dataSource);
-		return txName;
+	@Bean(name = "transactionManager")
+	public HibernateTransactionManager transactionManager(SessionFactory sessionFactory, DataSource dataSource) throws IOException {
+		HibernateTransactionManager transactionManager = new HibernateTransactionManager();
+		transactionManager.setSessionFactory(sessionFactory);
+		transactionManager.setDataSource(dataSource);
+		return transactionManager;
 	}
 	
 	@Override

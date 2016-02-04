@@ -10,7 +10,7 @@ public interface UserDAO {
 
 	public List<User> listUser();
 
-	public User getUserById(int id);
+	public List<User> getUserById(String email);
 
 	public void removeUser(int id);
 

@@ -9,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class EmployementDetails {
 
 	@Id
-	@Column
+	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
@@ -61,16 +61,17 @@ public class EmployementDetails {
 		this.designation = designation;
 	}
 
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name="user_id")
-	private Set<User> users;
+	private User user;
 	
-	public Set<User> getUsers() {
-		return users;
+
+	public User getUser() {
+		return user;
 	}
 
-	public void setUsers(Set<User> users) {
-		this.users = users;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Column(name = "company_name")

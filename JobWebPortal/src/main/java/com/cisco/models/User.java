@@ -3,42 +3,39 @@ package com.cisco.models;
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "user")
 public class User {
-	
-//	public User() {
-//		// TODO Auto-generated constructor stub
-//	}
-	
+
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-//	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-//	@JoinColumn(name="qualification_id")
-//	private Qualification qualificationId;
-	
-	@OneToMany(mappedBy="user")
-	private Set<Qualification> qualification;
 
+	@OneToMany(mappedBy = "user")
+	private Set<Qualification> qualification;
 	
-	@Column(name = "user_name")
-	private String userName;
+	@OneToMany(mappedBy = "user")
+	private Set<EmployementDetails> employments;
 	
-	@Column(name = "email")
+	public Set<EmployementDetails> getEmployments() {
+		return employments;
+	}
+
+	public void setEmployments(Set<EmployementDetails> employments) {
+		this.employments = employments;
+	}
+
+	@Column(name = "email", unique = true, nullable = false)
 	private String email;
 
 	public Set<Qualification> getQualification() {
@@ -59,33 +56,34 @@ public class User {
 
 	@Column(name = "password")
 	private String password;
-	
+
 	@Column(name = "first_name")
 	private String firstName;
-	
+
 	@Column(name = "last_name")
 	private String lastName;
-	
+
 	@Column(name = "admin")
 	private String admin;
-	
+
 	@Column(name = "created_date")
 	private Date createdDate;
-	
-	@Column(name = "mobile", unique=true)
+
+	@Column(name = "mobile")
 	private String mobile;
-	
+
 	@Column(name = "permanent_address")
-	private String permanentAddress;	
-	
+	private String permanentAddress;
+
 	@Column(name = "current_address")
 	private String currentAddress;
-	
+
 	@Column(name = "gender")
-	private String gender; 
-	
+	private String gender;
+
 	@Column(name = "dob")
 	private Date dob;
+
 
 	public long getId() {
 		return id;
@@ -93,14 +91,6 @@ public class User {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
 	}
 
 	public String getPassword() {

@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 @Table(name = "qualification")
@@ -30,8 +32,7 @@ public class Qualification {
 	//@OneToMany
 	private long qualificationId;
 	
-	@ManyToOne
-	@JoinColumn(name="user_id")
+	@ManyToOne(optional = false)
 	private User user;
 	
 	public User getUser() {
