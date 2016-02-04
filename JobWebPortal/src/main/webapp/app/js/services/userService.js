@@ -36,7 +36,26 @@ angular.module('job-app.services', []).factory('userService', function($http) {
 		  });
 		return res;
 	};
-
+	
+	serviceObj.validateEmail = function(requestData, successCallback, errorCallback) {
+		var res = $http({
+			method : 'POST',
+			url : 'user/validateEmail',
+			data: requestData
+		}).then(function (response) {
+			if(response && response.data.responseCode == 200 || response.data.responseCode == 400) {
+				if (successCallback) {
+					successCallback(response.data);
+				}	
+			}
+		  }, function (response) {
+			  if(errorCallback) {
+				  errorCallback(response);
+			  }
+		  });
+		return res;
+	};
+	
 	return serviceObj;
 });
 

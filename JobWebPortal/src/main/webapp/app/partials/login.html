@@ -91,10 +91,12 @@
 										<input type="email" name="email" id="email"
 											class="form-control input-sm" placeholder="Email Address"
 											required data-toggle="floatLabel" data-value="no-js"
+											ng-blur="validateEmail()"
 											ng-model="formData.register.email">
-										<p class="help-block"
-											ng-show="registerForm.email.$invalid && registerForm.email.$touched ">Enter
-											a valid email.</p>
+										<p class="help-block {{registerForm.$invalid = emailAlreadyExists}}"
+											ng-show="registerForm.email.$invalid && registerForm.email.$touched">Enter
+											a valid email. <span ng-show="registerForm.email.$invalid = emailAlreadyExists">Email already exists!</span></p>
+										
 									</div>
 								</div>
 							</div>

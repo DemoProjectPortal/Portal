@@ -6,10 +6,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +29,6 @@ import com.cisco.models.PersonalDetails;
 import com.cisco.models.Qualification;
 import com.cisco.models.QualificationMaster;
 import com.cisco.models.Register;
-//import com.cisco.models.QulificationMaster;
 import com.cisco.models.User;
 import com.cisco.models.UserJson;
 
@@ -120,11 +117,11 @@ public class UserController {
 			
 			response.setResponseCode(200);
 			response.setStatus("success");
-			response.setDesription("Registered successfully!");
+			response.setDescription("Registered successfully!");
 		} catch (Exception e) {
 			response.setResponseCode(400);
 			response.setStatus("Error");
-			response.setDesription("Registration failed!");
+			response.setDescription("Registration failed!");
 			e.printStackTrace();
 		}
 		return response;
@@ -148,11 +145,11 @@ public class UserController {
 		if (userData.size() <= 0) {
 			res.setResponseCode(200);
 			res.setStatus(status);
-			res.setDesription("Email is valid");
+			res.setDescription("Email is valid");
 		} else {
 			res.setResponseCode(400);
 			res.setStatus("Error");
-			res.setDesription("Email already exits");
+			res.setDescription("Email already exits");
 		}
 
 		return res;
