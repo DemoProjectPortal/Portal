@@ -25,6 +25,18 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	@JsonManagedReference
 	private Set<Qualification> qualification;
+	
+	@OneToMany(mappedBy = "user")
+	@JsonManagedReference
+	private Set<EmployementDetails> employments;
+	
+	public Set<EmployementDetails> getEmployments() {
+		return employments;
+	}
+
+	public void setEmployments(Set<EmployementDetails> employments) {
+		this.employments = employments;
+	}
 
 	@Column(name = "email", unique = true, nullable = false)
 	private String email;
@@ -74,6 +86,7 @@ public class User {
 
 	@Column(name = "dob")
 	private Date dob;
+
 
 	public long getId() {
 		return id;
