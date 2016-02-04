@@ -19,61 +19,50 @@ import com.cisco.models.QualificationMaster;;
 @EnableTransactionManagement
 public class QualificationMasterDAOImpl implements QualificationMasterDAO {
 
-	private static final Logger logger = LoggerFactory.getLogger(QualificationMasterDAOImpl.class);
+  private static final Logger logger = LoggerFactory.getLogger(QualificationMasterDAOImpl.class);
 
-	@Autowired
-	private SessionFactory sessionFactory;
+  @Autowired
+  private SessionFactory sessionFactory;
 
-	public void setSessionFactory(SessionFactory sf) {
-		this.sessionFactory = sf;
-	}
+  public void setSessionFactory(SessionFactory sf) {
+    this.sessionFactory = sf;
+  }
 
-	@Override
-	@Transactional
-	public long addQualificationMaster(QualificationMaster p) {
-		long id = 0;
-		try {
-			System.out.println("1111");
-			Session session = this.sessionFactory.getCurrentSession();
-			id = (long) session.save(p);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		logger.info("QulificationMaster added successfully, Qulification Details=" + p);
-		return id;
-	}
+  @Override
+  @Transactional
+  public long addQualificationMaster(QualificationMaster p) {
 
-	@Override
-	public void updateQualificationMaster(QualificationMaster p) {
-		// TODO Auto-generated method stub
+    return 0L;
+  }
 
-	}
+  @Override
+  public void updateQualificationMaster(QualificationMaster p) {
 
-	@Override
-	public List<QualificationMaster> listQualificationMaster() {
-		List<QualificationMaster> list = null;
-		try {
-			System.out.println("1111");
-			Session session = this.sessionFactory.getCurrentSession();
-			Query query = session.createQuery("from Weather"); //You will get Weayher object
-			list = query.list(); //You are accessing  as list<WeatherModel>
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		logger.info("QulificationMaster added successfully, Qulification Details=");
-		return list;
-	}
+  }
 
-	@Override
-	public QualificationMaster getQualificationMasterById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+  @SuppressWarnings("unchecked")
+  @Override
+  @Transactional
+  public List<QualificationMaster> getListOfQualificationMaster() {
+    List<QualificationMaster> list = null;
+    try {
+      Session session = this.sessionFactory.getCurrentSession();
+      Query query = session.createQuery("from QualificationMaster");
+      list = query.list();
+    } catch (Exception e) {
+      logger.error("Cannot fetch qualification list error : " + e.getStackTrace());
+    }
+    return list;
+  }
 
-	@Override
-	public void removeQualificationMaster(int id) {
-		// TODO Auto-generated method stub
+  @Override
+  public QualificationMaster getQualificationMasterById(int id) {
 
-	}
+    return null;
+  }
 
+  @Override
+  public void removeQualificationMaster(int id) {
+
+  }
 }

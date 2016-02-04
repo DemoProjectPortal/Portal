@@ -13,14 +13,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.cisco.models.Qualification;
-import com.cisco.models.User;
 
 @Repository
 @EnableTransactionManagement
 public class QualificationDAOImpl implements QualificationDAO{
 
 	public QualificationDAOImpl() {
-		// TODO Auto-generated constructor stub
+
 	}
 	
 	private static final Logger logger = LoggerFactory.getLogger(QualificationDAOImpl.class);
@@ -48,25 +47,23 @@ public class QualificationDAOImpl implements QualificationDAO{
 
 	
 	public void updateQualification(Qualification p) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public List<Qualification> listQualification() {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public Qualification getQualificationById(int id) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public void removeQualification(int id) {
-		// TODO Auto-generated method stub
 		
 	} 
 	

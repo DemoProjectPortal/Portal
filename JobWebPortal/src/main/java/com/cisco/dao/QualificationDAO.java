@@ -2,8 +2,7 @@ package com.cisco.dao;
 
 import java.util.List;
 
-import com.cisco.models.Qualification;
-import com.cisco.models.User;
+import com.cisco.models.Qualification;  
 
 public interface QualificationDAO {
 
