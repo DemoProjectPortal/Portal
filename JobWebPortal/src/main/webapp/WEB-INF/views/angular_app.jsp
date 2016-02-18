@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Job Portal</title>
-<script src="app/lib/angular/angular.js"></script>
+<!-- <script src="app/lib/angular/angular.js"></script> -->
+<script src="/bower_components/angular/angular.js"></script>
 <script src="app/lib/angular/angular-route.js"></script>
 <script src="app/lib/angular/angular-resource.js"></script>
 <script src="app/lib/angular/angular-mocks.js"></script>
